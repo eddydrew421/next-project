@@ -11,15 +11,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/layout.js"
     ],
-    "/dashboard/(overview)/page": [
+    "/dashboard/invoices/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/(overview)/page.js"
-    ],
-    "/dashboard/(overview)/loading": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/(overview)/loading.js"
+      "static/chunks/app/dashboard/invoices/page.js"
     ]
   }
 }
