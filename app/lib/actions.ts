@@ -1,10 +1,14 @@
 'use server';
+
+import { signIn } from '@/auth';
+import { AuthError } from 'next-auth';
  
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
+//formats & coerces form types
 const FormSchema = z.object({
     id: z.string(),
     customerId: z.string({
@@ -19,6 +23,7 @@ const FormSchema = z.object({
     date: z.string(),
   });
 
+  //defines our errors
 export type State = {
   errors?: {
     customerId?: string[];
@@ -28,6 +33,27 @@ export type State = {
   message?: string | null;
 };
 
+//this handles our authentication with the login form
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
+}
+
+//
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 
@@ -88,7 +114,7 @@ export async function updateInvoice(
         message: 'Missing Fields. Failed to Update Invoice.',
       };
     }
-    
+
     const { customerId, amount, status } = validatedFields.data;
     const amountInCents = amount * 100;
  

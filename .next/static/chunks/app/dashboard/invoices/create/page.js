@@ -49,6 +49,7 @@ eval(__webpack_require__.ts("\nObject.defineProperty(exports, \"__esModule\", ({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   authenticate: function() { return /* binding */ authenticate; },
 /* harmony export */   createInvoice: function() { return /* binding */ createInvoice; },
 /* harmony export */   deleteInvoice: function() { return /* binding */ deleteInvoice; },
 /* harmony export */   updateInvoice: function() { return /* binding */ updateInvoice; }
@@ -64,8 +65,9 @@ function __build_action__(action, args) {
   return (0,next_dist_client_app_call_server__WEBPACK_IMPORTED_MODULE_0__.callServer)(action.$$id, args)
 }
 
-/* __next_internal_action_entry_do_not_use__ {"0987421bcb161a2a1b9643b26c64deeec30df650":"createInvoice","298210c748d8f3ceae9ea443a3ae6d40dfd90d42":"deleteInvoice","f1a061773fed977bc74b6e281da88f53cf3aba68":"updateInvoice"} */ 
+/* __next_internal_action_entry_do_not_use__ {"0987421bcb161a2a1b9643b26c64deeec30df650":"createInvoice","298210c748d8f3ceae9ea443a3ae6d40dfd90d42":"deleteInvoice","ca1a465e0409ec64454add08b72cdf41cfc8377e":"authenticate","f1a061773fed977bc74b6e281da88f53cf3aba68":"updateInvoice"} */ 
 
+var authenticate = (0,private_next_rsc_action_client_wrapper__WEBPACK_IMPORTED_MODULE_2__.createServerReference)("ca1a465e0409ec64454add08b72cdf41cfc8377e");
 var createInvoice = (0,private_next_rsc_action_client_wrapper__WEBPACK_IMPORTED_MODULE_2__.createServerReference)("0987421bcb161a2a1b9643b26c64deeec30df650");
 var updateInvoice = (0,private_next_rsc_action_client_wrapper__WEBPACK_IMPORTED_MODULE_2__.createServerReference)("f1a061773fed977bc74b6e281da88f53cf3aba68");
 var deleteInvoice = (0,private_next_rsc_action_client_wrapper__WEBPACK_IMPORTED_MODULE_2__.createServerReference)("298210c748d8f3ceae9ea443a3ae6d40dfd90d42");
